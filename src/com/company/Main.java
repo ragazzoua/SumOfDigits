@@ -5,21 +5,23 @@ public class Main {
     public static void main(String[] args) {
         // write your code here
 
-        System.out.println("Sum digits = " + sumDigits(123));
+        System.out.println(isPalindrome(404));
     }
 
-    private static int sumDigits(int number) {
-        if (number < 10) {
-            return -1;
-        }
-        int sum = 0;
+    public static boolean isPalindrome(int integer) {
+        int palindrome = integer;
+        int reverse = 0;
 
-        while (number > 0) {
-            int digit = number % 10;
-            sum += digit;
-            number /= 10;
+        // Compute the reverse
+        while (palindrome != 0) {
+            int remainder = palindrome % 10;
+            reverse = reverse * 10 + remainder;
+            palindrome = palindrome / 10;
         }
-        return sum;
+
+        // The integer is palindrome if integer and reverse are equal
+        return integer == reverse; // Improved by Peter Lawrey
+
     }
 
 }
